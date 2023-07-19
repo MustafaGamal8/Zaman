@@ -1,0 +1,168 @@
+
+:root{
+    --white:#fff;
+    --light:#f2f2f3;
+    --main:#6f10a2;
+    --sec:#10a26f;
+  }
+  .bg-main{
+   background: #6f10a2; 
+  }
+  
+  
+  
+  body{
+    color: var(--main);
+    font-family: 'Tajawal', sans-serif;
+  }
+  
+  
+  #sell:hover .search_dialoag{
+    display: flex;
+  
+  }
+  section{
+    color: black;
+    width: 80%;
+    direction: rtl;
+    padding-top: 100px;
+    margin: auto;
+    
+  }
+section article{
+    margin: 2px;
+}
+section article h3{
+    color: rgb(5, 6, 6);
+    font-size: 30px;
+    position: relative;
+    padding: 30px;
+    z-index: -1;
+}
+section  h1{
+text-align: center;
+color: var(--main);
+font-size: 40px;
+font-weight: 700;
+padding: 20px 10px 20px ;
+}
+section article h3::after{
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    background:linear-gradient(to left,#874fee,#c07272,#f39200);
+    width: 10%;
+    height: 5px;
+    border-radius: 20px;
+
+}
+ol li,ul{
+    list-style:  inside;
+    padding: 20px 10px 20px ;
+    font-size: 15px;
+    font-size:20px ;
+    margin-top: 15px;
+    width: 100%;
+        
+}
+section p{
+  font-size: 20px;
+  opacity: 0.7;
+}
+@media(max-width:770px){
+  
+    .parent{
+      display: flex; justify-content: space-between;
+    }
+  
+}
+#navbar{
+  z-index: 999;
+  background-color: var(--white);
+  opacity: 1;
+}
+footer{
+  width: 100%;
+  background-color: var(--light);
+  height: fit-content;}
+.footer{
+  width: 100%;
+  background-color: var(--light);
+  height: fit-content;
+  direction: rtl;
+  display: flex;
+  /* justify-content: space-around; */
+  margin-top: 100px;
+  padding: 50px;
+ 
+}
+
+footer .simg{
+  /* padding: 10px; */
+  margin-top: 10px;
+}
+footer p{
+  color: black;
+}
+footer ul{
+  color: black;
+  margin-right: 180px;
+ padding: 30px;
+ list-style: none;
+
+}
+footer li{
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 18px;
+  
+}
+footer h1{
+  color: var(--main);
+  font-size: 25px;
+  font-weight: 700px;
+  padding: 0 50px 10px 20px;
+  position: relative;
+}
+footer h1::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: #874fee;
+  height: 3px;
+}
+@media(max-width: 1150px){
+  .footer{
+    flex-direction: column;
+  }
+  footer ul{  margin-right: 0px;
+  }
+  .last{
+    flex-direction: column;
+  }
+  .end{
+    margin-top: 50px;
+    font-size: 30px;
+    flex-direction: column;
+  }
+  .icon{
+width: 40%;
+  }
+  .icon i{
+    margin-top: 20px;
+    
+  }
+}
+.last i{
+margin-right: 50px;
+color: rgb(122, 132, 141);
+font-size: 40px;
+}
+
+.last p{
+  margin-left: 50px;
+  padding: 10px;
+}

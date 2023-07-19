@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="../../index.js"></script>
+  </head>
+  <body>
+    
+    <div id="navBar"></div>
+    <script>
+      loadComponent('/componets/navbar.html','navBar');
+    </script>
+    
+
+
+    <div class="container" >
+
+        <div id="login">
+            <h1>تسجيل الدخول</h1>
+            <p style="padding: 0 20px 20px 20px; color: black;">ادخل رقم هاتقك</p>
+            <div class="input" id="inputbox">
+                <button>+996</button>
+                <input type="tel" placeholder="رقم" id="display"><br> 
+            
+            </div>
+            <span id="alert" style="color: red;"></span>
+            <button id="btn">استمرار</button>
+            <p style="color: black;">عند المتابعة، أوافق على</p>
+            <p><a href="/pages/privacy/privacy.html">وسياسة الخصوصية</a> <a href="">.الشروط والأحكام</a></p>
+           
+        </div>
+    
+    
+    
+    
+        <div id="menu">
+          <ul>
+            <p id="p">سجل الدخول لتجربة <br> مستخدم أفضل</p>
+
+            <li style="display: flex ;justify-content: space-between; height: 80px;">
+            <p>
+              <i class="fa-solid fa-wallet" style="color: #2e2a2a;"></i>
+             <span style="margin-right: 10px;"> محفظة وصلت <br><span style="margin-right: 10px;">الإلكترونية</span</span>
+            
+            </p>
+
+            <p style="height: 30px; width: 60px; background-color:#10a26f; padding: 1px; color: #fff; border-radius: 5px; text-align: center; margin-left: 5px;" >جديد</p>
+            </li>
+
+            <li> <i class="fa-regular fa-heart"></i> <span>
+              المفضلة</span></li>
+            <li><i class="fa-regular fa-clock"></i>
+            <span>نشاطك</span></li>
+          </ul>
+        </div>
+
+
+    
+    
+    
+    
+    </div>
+
+   
+<div class="sec">
+<div class="card">
+  <div class="cardtitle"><h1><a href="/pages/login/login.html"> محفظة وصلت الإلكترونية</h1></a></div>
+  <div class="cardicon">  <i class="fa-solid fa-wallet" style="color: #2e2a2a;"></i></div>
+</div>
+<div class="card">
+  <div class="cardtitle"><h1> 
+    المفضلة</h1></div>
+  <div class="cardicon"> <i class="fa-regular fa-heart"></i> </i></div>
+</div>
+<div class="card">
+  <div class="cardtitle"><h1> 
+    نشاطك</h1></div>
+  <div class="cardicon"> <i class="fa-regular fa-clock"></i> </i></div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+let display=document.getElementById("display")
+let allert =document.getElementById("alert")
+let btn =document.getElementById("btn")
+let inputbox =document.getElementById("inputbox")
+
+window.onload=()=>{
+display.focus()
+}
+
+display.addEventListener("keyup",()=>{
+let length = display.value.length
+if (length != 9){
+allert.innerHTML=` يرجى إدخال رقم جوال من 9 أرقام`
+inputbox.style.border="1px solid red"
+}
+else{
+allert.innerHTML=``
+inputbox.style.border="1px solid #f2f2f3"
+
+}
+})
+    </script>
+  </body>
+</html>
