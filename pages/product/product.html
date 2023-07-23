@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <script src="/index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/index.css">
+
+
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.wrapper {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  direction: rtl;
+  margin: auto;
+  margin-top: 100px;
+  padding: 50px;
+  height: fit-content;
+}
+.wrapper i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active{
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper i:first-child{
+  left: -22px;
+}
+.wrapper i:last-child{
+  right: -22px;
+}
+.wrapper .carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .img) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carousel .card {
+  scroll-snap-align: start;
+
+
+  cursor: pointer;
+ 
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 20px;
+}
+.carousel .card .img {
+  
+  height: 100%;
+  width: 100%;
+ 
+}
+.card .img img {
+  width: 100%;
+  height: 100%;
+ 
+
+}
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 30px 0 5px;
+}
+.carousel .card span {
+  color: #6A6D78;
+  font-size: 1.31rem;
+}
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 9px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: 100%;
+  }
+}
+
+</style>
+
+
+
+</head>
+<body>
+  <div id="navBar"  ></div>
+  
+  <script>
+    loadComponent('/componets/navbar.html','navBar');
+  </script>
+
+  
+
+
+
+<div class=" mt-40 w-4/5 m-auto h-96 flex flex-col md:flex-row items-center md:items-start gap-y-5 ">
+
+  <div class="  md:w-1/3  p-2">
+    <div class="flex items-center justify-center gap-3 flex-wrap-reverse">
+      <button class=" border bg-white  p-1 px-6 rounded-md focus:border-[#510c76] flex items-center whitespace-nowrap">الابلاغ عن عقار <i class="fa-solid fa-warning"></i></button>
+      <button class=" border bg-white  p-1 px-6 rounded-md focus:border-[#510c76] flex items-center whitespace-nowrap">مشاركة <i class="fa-solid fa-share"></i></button>
+      <button class=" border bg-white  p-1 px-6 rounded-md focus:border-[#510c76] flex items-center whitespace-nowrap">حفظ <i class="fa-solid fa-heart"></i></button>
+
+    </div>
+
+    <div class="border bg-white rounded-md p-5 text-black mt-5 shadow text-right">
+      <div class="flex items-center  flex-row-reverse gap-2"><h1> 20,000 </h1><span class="text-gray-500">ر.س/سنة</span></div>
+      <div class="flex items-center  flex-row-reverse gap-2"><h1> السعي 2.5%، التأمين </h1><span class="text-gray-500"> 0 ر.س</span></div>
+      <div class="mt-5">
+        <h1 class="border p-2 w-min ml-auto">مالك</h1>
+        <p>الرقم المرجعي 424100 | آخر تحديث: منذ 43 يوم</p>
+        <h2>مسوق من قبل سلطان الشهري</h2>
+        <div class="flex gap-3 mt-2 flex-row-reverse">
+          <a href="" class="p-2 rounded-lg  bg-[#3A564F] text-white w-full"> اتصال <i class="fa-solid fa-phone"></i></a>
+          <a href="" class="p-2 rounded-lg  border border-green-400 hover:bg-green-400 hover:text-white text-green-400  w-full">واتساب <i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class=" w-full flex flex-col items-end text-black gap-y-4 text-right ">
+    <!-- slider -->
+    <div class="bg-[#000000]  lg:flex hidden w-[600px] h-[600px]  rounded-md">
+      <div class="wrapper">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+        <ul class="carousel  h-[300px]">
+          <li class="card ">
+            <div class="img">
+              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125 " alt="img" draggable="false" />
+            </div>
+          
+          </li>
+          <li class="card">
+            <div class="img">
+              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125 " alt="img" draggable="false" />
+            </div>
+        
+          
+          </li>
+          <li class="card">
+            <div class="img">
+              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125" alt="img" draggable="false" />
+            </div>
+            
+          </li>
+          <li class="card">
+            <div class="img">
+              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125"  alt="img" draggable="false" />
+            </div>
+          
+          </li>
+        </ul>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+      </div>
+    </div>
+
+    <div class="mt-5 flex items-center gap-2 ">
+        <h1 class="p-2 border rounded">للايجار</h1>
+        <h1 class="p-2 border rounded">غير مفروشة</h1>
+    </div>
+
+    <div>
+      <h1 class="text-3xl font-semibold">شقة للإيجار في حي الخليج ، جدة</h1>
+      <p class=" text-gray-600">الخليج، شمال جدة، جدة</p>
+    </div>
+
+    <div class="flex flex-row-reverse flex-wrap gap-8 w-1/2">
+
+      <div class="flex items-center gap-1">
+        <h1 class="font-semibold text-xl">3</h1>
+        <img class="h-8" src="/asset/icons/bed.svg" alt="">
+    </div>
+
+      <div class="flex items-center gap-1">
+        <h1 class="font-semibold text-xl">4</h1>
+        <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+    </div>
+
+      <div class="flex items-center gap-1">
+        <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+        <img class="h-8" src="/asset/icons/meter.svg" alt="">
+    </div>
+
+      <div class="flex items-center gap-1">
+        <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1">10 <span class="text-sm text-gray-500">سنة</span></h1>
+        <img class="h-8" src="/asset/icons/date.svg" alt="">
+    </div>
+
+    </div>
+
+    <div class="w-60 border rounded p-2 bg-gray-100">
+      <h1 >
+        عدد المشاهدات آخر 7 أيام 52</h1>
+    </div>
+
+    <hr class="w-full ">
+
+    <div >
+      <h1 class="text-3xl font-semibold mb-3">معلومات الشارع</h1>
+      <p>
+        الشارع 1
+        العرض
+        32م
+        الواجهة
+        شمالية</p>
+    </div>
+
+    
+    <hr class="w-full ">
+    <div>
+      <h1 class="text-3xl font-semibold mb-3">معلومات إضافية </h1>
+      
+      <div class="flex flex-wrap gap-12  justify-end  p-1">
+
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">نوع العقار</h1> <p class="text-gray-500">سكني</p></div>
+
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">كهرباء </h1> <p class="text-gray-500">لا</p></div>
+      
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">دور العقار </h1> <p class="text-gray-500">1</p></div>
+
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">الواجهة</h1> <p class="text-gray-500">شمالية</p></div>
+
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">مياه</h1> <p class="text-gray-500">لا</p></div>
+
+        <div class="flex gap-6 flex-row-reverse items-center"><h1 class="font-semibold text-lg">عمر العقار</h1> <p class="text-gray-500">1 سنة</p></div>
+      
+      </div>
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+
+    
+    <hr class="w-full ">
+
+    <div class="w-4/5">
+      <h1 class="text-3xl font-semibold mb-3">الميزات والمرافق  </h1>
+
+      <div class="flex  w-full  gap-6  justify-between ">
+        <div class="gap-y-4 flex  flex-col ">
+          <h1>حوش</h1>
+          <h1>ملحق</h1></div>
+
+          <div class=" flex  flex-col gap-y-4">
+            
+        <h1>سطح</h1>
+        <h1>مدخلين منفصلين</h1>
+          </div>
+
+      </div>
+
+    </div>
+
+    
+    <hr class="w-full ">
+
+    <div>
+      <h1 class="text-3xl font-semibold mb-3">والتجهيزات</h1>
+
+      <div class="flex  w-full  gap-6  justify-between ">
+        <div class="gap-y-4 flex  flex-col ">
+          <h1> أرضيات سيراميك</h1>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    
+    <hr class="w-full ">
+
+    <div>
+      
+      <h1 class="text-3xl font-semibold mb-3">وصف العقار</h1>
+      <p>شقة عوائل غير مفروشة للتأجير في حي الخليج٬ جدة
+
+        مسطحات البناء 189 م²</p>
+
+        <a href="" class="text-[#3A564F]">عرض لمزيد</a>
+
+    </div>
+
+
+    
+    <hr class="w-full ">
+    <div>
+      <h1 class="text-xl text-gray-500">حالة توثيق العقار من الجهات المختصة</h1>
+      <button class="bg-yellow-400 border border-yellow-800 bg-opacity-10 p-2  text-gray-600 rounded">العقار مرهون <i class="fa-solid  fa-warning"></i></button>
+    </div>
+
+    
+    <hr class="w-full ">
+
+
+    <div class="border flex md:rounded-lg justify-between items-center bg-white h-44 w-full   relative after:right-0 after:absolute after:top-0 after:bg-[#3A564F] after:w-0 after:h-full after:z-[1] after:transition-all after:duration-300 hover:after:w-full hover:text-white  group">
+      <img class="h-full z-[2]" src="/asset/cards/share_req_updated_blur_ar.png" alt="">
+      <div class="text-right flex flex-col items-end gap-3 p-3 z-[2]">
+        <h1 class=" md:text-2xl font-semibold">تواصل مباشرة مع مسوقين في جدة</h1>
+        <p class="text-gray-600 group-hover:text-white md:text-lg">أكثر من 20 مسوق لديهم عقارات متطابقة مع متطلباتك.</p>
+        <a href="" class="p-3 text-white bg-[#3A564F] rounded-lg  md:text-xl">اطلب عقارك </a>
+      </div>
+    </div>
+
+
+    
+
+    
+
+
+    <div class="h-40"></div>
+
+  </div>
+
+  
+</div>
+
+
+
+  
+  
+</body>
+</html>

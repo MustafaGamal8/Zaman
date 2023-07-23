@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="add.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="/index.js"></script>
+  </head>
+  <body>
+    
+    <div id="navBar"></div>
+    <script>
+      loadComponent('/componets/navbar.html','navBar');
+    </script>
+
+
+
+
+
+
+<section >
+<div class="containerr">
+    <div><img src="/asset/house.svg"    alt=""></div>
+
+    <div class="text">
+<h1>عندك عقار للبيع أو الإيجار؟ وصَلت!</h1>
+<h2>أدرج عقارك بـ 3 خطوات سهلة وخلي الباقي علينا.</h2>
+<ul>
+    <li><i class="fa-regular fa-circle-check"></i> طلبات جادة وحقيقية</li>
+    <li><i class="fa-regular fa-circle-check"></i>بدون رسوم (فقط 50 ريال بعد إتمام عملية البيع أو التأجير)</li>
+    <li><i class="fa-regular fa-circle-check"></i>تجربة مُستخدم سهلة وبسيطة</li>
+</ul>
+
+    </div>
+</div>
+
+<div style="display: flex; align-items: center;">
+  <div class="hid" style="width: 20%;"></div>
+
+<div class="main">
+
+    <h1>ابدأ الآن</h1>
+    <p>أدخل رقم جوالك</p>
+    <div class="input">
+<input type="tel" maxlength="9" placeholder="512345678" id="display">
+
+<select name="" id="">
+  <option value=""><i class="fa-solid fa-globe">+966</i></option>
+  
+</select>
+<button>التالي</button>
+
+
+    </div>
+    <small id="alert"></small>
+
+  </div>
+
+  <div class="hid" style="width: 20%;"></div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer style="direction: rtl;">
+      <div class="footer">
+        <div><img src="/asset/logo.svg" alt="" class="fimg" width="200px">
+        <img src="/asset/رخصه.png" width="100px" class="simg" alt="">
+        <p>مرخص من الهيئة العامة للعقار</p>
+        </div>
+      
+      
+      
+        <div>
+     
+        </div>
+      
+      
+      
+        <div>  
+        
+        </div>
+      </div>
+      
+      
+      
+      <div class="last" style="display: flex; justify-content: space-between;">
+      <div class="icon" style="display: flex; justify-content: space-between;" >
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+      
+      <div class="end" style="display: flex; justify-content: space-around;">
+        <p><a href="#policity">  شروط الخصوصية </a> </p>
+        <p> <a href="/pages/privacy/privacy.html">   شروط الاستخدام </a> </p>
+        <p>
+          شروط الإعلان عبر الموقع</p>
+      <p><i class="fa-solid fa-earth-americas" style="font-size: 20px;"></i>English</p>
+      
+      
+      
+      
+      </div>
+      </div>
+      
+      </footer>
+
+
+
+
+
+<script>
+  let display=document.getElementById("display")
+let allert =document.getElementById("alert")
+
+
+window.onload=()=>{
+display.focus()
+}
+
+display.addEventListener("keyup",()=>{
+let length = display.value.length
+if (length != 9){
+allert.innerHTML=` يرجى إدخال رقم جوال صحيح`
+allert.style.color="red"
+
+}
+else{
+allert.innerHTML=``
+
+
+}
+})
+</script>
+
+  </body>
+</html>
+    

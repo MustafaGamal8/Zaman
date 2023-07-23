@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap"
+      rel="stylesheet"
+      />
+    <link rel="stylesheet" href="/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./index.js"></script>
+    
+  </head>
+  <body>
+
+    
+
+  <div id="loader"  class="fixed top-0 left-0 w-[100vw] h-[100vh]  flex items-center bg-white justify-center z-[999]  overflow-y-hidden"><div class="lds-dual-ring"></div></div>
+
+    
+  <div id="navBar"></div>
+
+  
+  <main class=" md:mt-32 mt-14">
+    <div id="homePage"></div>
+    <script src="/pages/home/home.js"></script>
+
+    
+  </main>
+
+
+  
+
+
+  <div id="footer"></div>
+
+
+  <script>
+
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden')
+    }, 3000);
+
+
+
+    // Call the function to load the header component
+    loadComponent('./componets/navbar.html','navBar');
+    loadComponent('/pages/home/home.html','homePage');
+    
+
+    loadComponent('/componets/footer.html',"footer")
+  </script>
+
+
+<div id="popUp" class=" hidden w-full h-full bg-black bg-opacity-20 z-40  absolute top-0 left-0" >
+
+  <div id="lang"  class=" hidden relative w-[600px] m-auto bg-white h-80 mt-80 rounded-xl flex items-center  justify-between"  >
+    <i class="fa-solid fa-xmark-circle text-2xl absolute top-2 left-2 cursor-pointer" onclick="togglePopUp('lang')"></i>
+    
+    <img src="/asset/contact1.svg" alt="" class="w-60">
+    
+    <div class="flex flex-col text-right items-end p-5">
+      <h1  class="text-black text-2xl  -translate-y-5"> اللغة</h1>
+      <div id="google_translate_element"></div>
+    </div>
+
+
+  </div></div>
+
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {pageLanguage:'ar',
+          includedLanguages:'en,ar'
+        },
+          'google_translate_element'
+        )
+      }
+    </script>
+  
+  
+
+
+
+  </body>
+</html>
