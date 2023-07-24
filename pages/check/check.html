@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="check.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script src="/index.js"></script>
@@ -31,17 +31,27 @@
     <div class="container" >
 
         <div id="login" > 
-            <h1>تسجيل الدخول</h1>
-            <p style="padding: 0 20px 20px 20px; color: black;">ادخل رقم هاتقك</p>
+            <h1> التحقق من رقم الجوال</h1>
+            <p style="padding: 0 20px 10px 20px; color: black;">أدخل رمز التحقق الذي تلقيته على الرقم</p>
+            <p style="padding: 0 10px 20px 10px; color: black;">      +966 523 456 789</p>
+
+            
             <div class="input" id="inputbox">
-                <button>+996</button>
-                <input type="tel" placeholder="رقم" id="display"><br> 
+                
+                <input type="tel" placeholder="رقم" maxlength="1"  id="display1">
+                <input type="tel" placeholder="رقم"  maxlength="1" id="display2">
+                <input type="tel" placeholder="رقم" maxlength="1"  id="display3">
+                <input type="tel" placeholder="رقم" maxlength="1"  id="display4">
+
             
             </div>
             <span id="alert" style="color: red;"></span>
-          <a href="/pages/check/check.html">  <button id="btn">استمرار</button></a>
-            <p style="color: black;">عند المتابعة، أوافق على</p>
-            <p><a href="/pages/Policy/Policy.html">وسياسة الخصوصية</a> <a href="/pages/privacy/privacy.html">.الشروط والأحكام</a></p>
+            <button id="btn">استمرار</button>
+            <p style="color: black;">   لم تتلق الرمز؟</p>
+            <p><a href=""> 
+                
+إرسال رمز جديد
+            </a> </p>
            
         </div>
     
@@ -106,8 +116,7 @@
 <!-- transition -->
 
 <div id="popUp" class=" hidden w-full h-full bg-black bg-opacity-20 z-40  absolute top-0 left-0" >
-
-  </div>
+</div>
 
 
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -133,27 +142,30 @@
 
 
     <script>
-let display=document.getElementById("display")
-let allert =document.getElementById("alert")
-let btn =document.getElementById("btn")
-let inputbox =document.getElementById("inputbox")
-
+let display1=document.getElementById("display1")
+let display2=document.getElementById("display2")
+let display3=document.getElementById("display3")
+let display4=document.getElementById("display4")
 window.onload=()=>{
-display.focus()
+    display1.focus()
 }
 
-display.addEventListener("keyup",()=>{
-let length = display.value.length
-if (length != 9){
-allert.innerHTML=` يرجى إدخال رقم جوال من 9 أرقام`
-inputbox.style.border="1px solid red"
-}
-else{
-allert.innerHTML=``
-inputbox.style.border="1px solid #f2f2f3"
-
-}
+display1.addEventListener("keyup", () => {
+ display2.focus() 
 })
+
+display2.addEventListener("keyup", () => {
+ display3.focus()
+})
+
+display3.addEventListener("keyup", () => {
+ display4.focus() 
+})
+
+
+
+
+
     </script>
   </body>
 </html>

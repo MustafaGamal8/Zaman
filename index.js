@@ -140,6 +140,13 @@ function goToLink(link) {
 
 }
 
+function removeHidden(id) {
+  document.getElementById(id).classList.remove('hidden')
+}
+function addHidden(id) {
+  document.getElementById(id).classList.add('hidden')
+}
+
 
 
 
@@ -150,3 +157,15 @@ function togglePopUp(popUpId) {
   
 }
 
+
+
+function changeLanguage() {
+
+  if (document.body.style.direction == 'ltr') {
+  document.body.style.direction = "rtl";
+  }else{
+
+    
+  document.body.style.direction = "ltr";
+  }
+}

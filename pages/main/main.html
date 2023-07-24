@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>ZAMAN</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -16,8 +16,13 @@
     />
     <link rel="stylesheet" href="main.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="/index.js"></script>
+
+    
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.19/sweetalert2.min.js" ></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.19/sweetalert2.min.css" />
   </head>
   <body>
     <div id="navBar"></div>
@@ -32,19 +37,19 @@
   <button class="border border-[#6f10a2] whitespace-nowrap p-2 b-white text-[#6f10a2] rounded-md cursor-pointer">عرض علي الخريطة</button>
 
   <div class="flex items-center flex-wrap-reverse justify-center gap-y-3">
-    <button onclick="togglePopUp('kind_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
+    <button onclick="swal('kind_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
       <h1 class="flex items-center flex-row-reverse gap-2 text-gray-500" > النوع <i class="fa-solid fa-angle-down"></i></h1>
     </button>
 
-    <button onclick="togglePopUp('rooms_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
+    <button onclick="swal('rooms_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
       <h1 class="flex items-center flex-row-reverse gap-2 text-gray-500" > غرف النوم <i class="fa-solid fa-angle-down"></i></h1>
     </button>
 
-    <button onclick="togglePopUp('badget_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
+    <button onclick="swal('badget_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
       <h1 class="flex items-center flex-row-reverse gap-2 text-gray-500" > الميزانية <i class="fa-solid fa-angle-down"></i></h1>
     </button>
 
-    <button onclick="togglePopUp('action_kind_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
+    <button onclick="swal('action_kind_popUp')"  class="group focus:border-[#6f10a2] mx-2 border p-1 md:p-3 md:px-5  md:rounded-full ">
       <h1 class="flex items-center flex-row-reverse gap-2 text-gray-500" > شراء <i class="fa-solid fa-angle-down"></i></h1>
     </button>
 
@@ -66,10 +71,7 @@
 
 
 <!-- pop Up s -->
-<div id="popUp" class=" hidden w-full h-full bg-black bg-opacity-20 z-40  absolute top-0 left-0">
-
-  <div id="action_kind_popUp" class=" hidden relative w-[400px] m-auto bg-white mt-80 rounded-xl flex  items-end   p-5 flex-col" >
-    <i class="fa-solid fa-xmark-circle text-2xl absolute top-2 left-2 cursor-pointer" onclick="togglePopUp('action_kind_popUp')"></i>
+  <div id="action_kind_popUp" class=" hidden " >
     <h1 class="text-lg">النوع  </h1>
 
     <div class="flex flex-wrap w-full p-3 gap-4 flex-row-reverse">
@@ -86,13 +88,12 @@
 
     <hr class="w-full ">
 
-    <div class="p-2 bg-[#6f10a2] rounded w-20 text-white mr-auto  mt-5 text-center cursor-pointer" onclick="togglePopUp('action_kind_popUp')">تاكيد</div>
+  
 
 
   </div>
 
-  <div id="rooms_popUp" class=" hidden relative w-[400px] m-auto bg-white  mt-80 rounded-xl flex  items-end   p-5 flex-col" >
-    <i class="fa-solid fa-xmark-circle text-2xl absolute top-2 left-2 cursor-pointer" onclick="togglePopUp('rooms_popUp')"></i>
+  <div id="rooms_popUp" class=" hidden   " >
     <h1 class="text-lg">غرف النوم </h1>
 
     <div class="flex flex-wrap w-full p-3 gap-4 flex-row-reverse">
@@ -124,13 +125,10 @@
 
     <hr class="w-full ">
 
-    <div class="p-2 bg-[#6f10a2] rounded w-20 text-white mr-auto  mt-5 text-center cursor-pointer" onclick="togglePopUp('rooms_popUp')">تاكيد</div>
-
-
+  
   </div>
 
-  <div id="badget_popUp" class=" hidden relative w-[400px] m-auto bg-white  mt-80 rounded-xl flex  items-end   p-5 flex-col" >
-    <i class="fa-solid fa-xmark-circle text-2xl absolute top-2 left-2 cursor-pointer" onclick="togglePopUp('badget_popUp')"></i>
+  <div id="badget_popUp" class="  hidden " >
     <h1 class="text-xl "> الميزانية </h1>
 
     <div class="w-full text-right">
@@ -170,17 +168,13 @@
 
     <hr class="w-full ">
 
-    <div class="p-2 bg-[#6f10a2] rounded w-20 text-white mr-auto  mt-5 text-center cursor-pointer" onclick="togglePopUp('badget_popUp')">تاكيد</div>
-
 
   </div>
 
 
 
 </div>
-
-<div id="kind_popUp" class=" hidden relative w-[600px] m-auto bg-white  mt-80 rounded-xl flex  items-end   p-5 flex-col" >
-  <i class="fa-solid fa-xmark-circle text-2xl absolute top-2 left-2 cursor-pointer" onclick="togglePopUp('kind_popUp')"></i>
+<div id="kind_popUp" class=" hidden  " >
   <h1 class="text-lg">نوع العقار</h1>
 
   <div class="flex flex-wrap w-full p-3 gap-4 flex-row-reverse">
@@ -251,23 +245,26 @@
 
   <hr class="w-full ">
 
-  <div class="p-2 bg-[#6f10a2] rounded w-20 text-white mr-auto  mt-5 text-center cursor-pointer" onclick="togglePopUp('kind_popUp')">تاكيد</div>
 
 
 </div>
 
-</div>
-
-<script>
-  function togglePopUp(popUpId) {
-    document.getElementById('popUp').classList.toggle('hidden')
-    document.getElementById(popUpId).classList.toggle('hidden')
-
-  }
-</script>
 
 <!-- End of filters -->
 
+
+<script>
+  function swal(popUP) {
+  
+  
+  Swal.fire({
+      showCloseButton: true,
+      confirmButtonText:'تأكيد',
+      html:document.getElementById(popUP).innerHTML
+    });
+
+  }
+</script>
 
 <div class="frist">
 

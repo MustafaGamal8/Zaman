@@ -3,125 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ZAMAN</title>
   
   <script src="/index.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
   <link rel="stylesheet" href="/index.css">
 
 
 <style>
-   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+  .wrapper {
+    width: 60%;
+    position: relative;
+    direction: rtl;
+    margin: auto;
+    margin-top: 100px;
+    padding: 50px;
+    height: fit-content;
+  }
+  .wrapper .i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    color:  rgb(73, 73, 221);
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+  }
+  .wrapper .i:active{
+    transform: translateY(-50%) scale(0.85);
+  }
+  .wrapper .i:first-child{
+    left: -22px;
+  }
+  .wrapper .i:last-child{
+    right: -22px;
+  }
+  .wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    height: 100%;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+  @media screen and (max-width: 900px) {
+    .wrapper .carousel {
+      grid-auto-columns: calc((100% / 2) - 9px);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .wrapper .carousel {
+      grid-auto-columns: 100%;
+    }
+  }
 
-.wrapper {
-  max-width: 1100px;
-  width: 100%;
-  position: relative;
-  direction: rtl;
-  margin: auto;
-  margin-top: 100px;
-  padding: 50px;
-  height: fit-content;
+.inline-gallery-container {
+    width: 80%;
+
+    height: 500px;
 }
-.wrapper i {
-  top: 50%;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  font-size: 1.25rem;
-  position: absolute;
-  text-align: center;
-  line-height: 50px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.23);
-  transform: translateY(-50%);
-  transition: transform 0.1s linear;
-}
-.wrapper i:active{
-  transform: translateY(-50%) scale(0.85);
-}
-.wrapper i:first-child{
-  left: -22px;
-}
-.wrapper i:last-child{
-  right: -22px;
-}
-.wrapper .carousel{
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 16px;
-  border-radius: 8px;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-.carousel::-webkit-scrollbar {
+.inline-gallery-container img {
   display: none;
-}
-.carousel.no-transition {
-  scroll-behavior: auto;
-}
-.carousel.dragging {
-  scroll-snap-type: none;
-  scroll-behavior: auto;
-}
-.carousel.dragging .card {
-  cursor: grab;
-  user-select: none;
-}
-.carousel :where(.card, .img) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.carousel .card {
-  scroll-snap-align: start;
-
-
-  cursor: pointer;
- 
-  flex-direction: column;
-  border-radius: 8px;
-  padding: 20px;
-}
-.carousel .card .img {
-  
-  height: 100%;
-  width: 100%;
- 
-}
-.card .img img {
-  width: 100%;
-  height: 100%;
- 
-
-}
-.carousel .card h2 {
-  font-weight: 500;
-  font-size: 1.56rem;
-  margin: 30px 0 5px;
-}
-.carousel .card span {
-  color: #6A6D78;
-  font-size: 1.31rem;
-}
-@media screen and (max-width: 900px) {
-  .wrapper .carousel {
-    grid-auto-columns: calc((100% / 2) - 9px);
-  }
-}
-@media screen and (max-width: 600px) {
-  .wrapper .carousel {
-    grid-auto-columns: 100%;
-  }
 }
 
 </style>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css"  />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-thumbnail.min.css"  />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-fullscreen.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lg-zoom.min.css" />
 
 </head>
 <body>
@@ -135,7 +112,7 @@
 
 
 
-<div class=" mt-40 w-4/5 m-auto h-96 flex flex-col md:flex-row items-center md:items-start gap-y-5 ">
+<div class="  mt-40 w-full p-8 lg:p-0 m-auto  lg:w-4/5 flex flex-col md:flex-row items-center md:items-start gap-y-5 ">
 
   <div class="  md:w-1/3  p-2">
     <div class="flex items-center justify-center gap-3 flex-wrap-reverse">
@@ -164,39 +141,23 @@
 
   <div class=" w-full flex flex-col items-end text-black gap-y-4 text-right ">
     <!-- slider -->
-    <div class="bg-[#000000]  lg:flex hidden w-[600px] h-[600px]  rounded-md">
-      <div class="wrapper">
-        <i id="left" class="fa-solid fa-angle-left"></i>
-        <ul class="carousel  h-[300px]">
-          <li class="card ">
-            <div class="img">
-              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125 " alt="img" draggable="false" />
-            </div>
-          
-          </li>
-          <li class="card">
-            <div class="img">
-              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125 " alt="img" draggable="false" />
-            </div>
-        
-          
-          </li>
-          <li class="card">
-            <div class="img">
-              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125" alt="img" draggable="false" />
-            </div>
-            
-          </li>
-          <li class="card">
-            <div class="img">
-              <img src="/asset/vila.png" class="w-[300px] h-[300px] object-cover scale-125"  alt="img" draggable="false" />
-            </div>
-          
-          </li>
-        </ul>
-        <i id="right" class="fa-solid fa-angle-right"></i>
-      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/fullscreen/lg-fullscreen.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/plugins/zoom/lg-zoom.min.js" ></script>
+
+
+    
+    <div id="inline-gallery-container" class="inline-gallery-container ">
+      <a  href="/asset/citys/jeddah-city-view.jpg"><img src="/asset/citys/jeddah-city-view.jpg" alt=""></a>
+      <a  href="/asset/citys/riyadh-city-view.jpg"><img src="/asset/citys/riyadh-city-view.jpg" alt=""></a>
+      <a  href="/asset/citys/medina-city-view.jpg"><img src="/asset/citys/medina-city-view.jpg" alt=""></a>
+      <a  href="/asset/citys/mecca-city-view.png"><img src="/asset/citys/mecca-city-view.png" alt=""></a>
     </div>
+    <script src="/gallery.js"></script>  
+    <!-- slider -->
+    
 
     <div class="mt-5 flex items-center gap-2 ">
         <h1 class="p-2 border rounded">للايجار</h1>
@@ -251,7 +212,7 @@
 
     
     <hr class="w-full ">
-    <div>
+    <div class="flex items-end flex-col">
       <h1 class="text-3xl font-semibold mb-3">معلومات إضافية </h1>
       
       <div class="flex flex-wrap gap-12  justify-end  p-1">
@@ -285,7 +246,8 @@
     
     <hr class="w-full ">
 
-    <div class="w-4/5">
+    <div class="w-4/5 flex flex-col items-end">
+
       <h1 class="text-3xl font-semibold mb-3">الميزات والمرافق  </h1>
 
       <div class="flex  w-full  gap-6  justify-between ">
@@ -323,7 +285,7 @@
     
     <hr class="w-full ">
 
-    <div>
+    <div class="flex flex-col items-end">
       
       <h1 class="text-3xl font-semibold mb-3">وصف العقار</h1>
       <p>شقة عوائل غير مفروشة للتأجير في حي الخليج٬ جدة
@@ -337,7 +299,21 @@
 
     
     <hr class="w-full ">
-    <div>
+    <div class="w-full h-80  flex flex-col items-end">
+      
+      <h1 class="text-3xl font-semibold mb-3">الموقع</h1>
+
+      <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387131.68899103706!2d-74.25986739450048!3d40.69714942235554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2a3735d893%3A0xd4e119e4713c8eab!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1568180855449!5m2!1sen!2sus"
+          width="100%" height="100%" frameborder="0" style="border: 0;" allowfullscreen="" aria-hidden="false"
+          tabindex="0"></iframe>
+    </div>  
+
+
+    
+    <hr class="w-full  mt-10">
+
+    <div class="mt-5">
       <h1 class="text-xl text-gray-500">حالة توثيق العقار من الجهات المختصة</h1>
       <button class="bg-yellow-400 border border-yellow-800 bg-opacity-10 p-2  text-gray-600 rounded">العقار مرهون <i class="fa-solid  fa-warning"></i></button>
     </div>
@@ -346,12 +322,12 @@
     <hr class="w-full ">
 
 
-    <div class="border flex md:rounded-lg justify-between items-center bg-white h-44 w-full   relative after:right-0 after:absolute after:top-0 after:bg-[#3A564F] after:w-0 after:h-full after:z-[1] after:transition-all after:duration-300 hover:after:w-full hover:text-white  group">
+    <div class="border flex md:rounded-lg justify-between items-center bg-white w-full  flex-col md:flex-row   relative after:right-0 after:absolute after:top-0 after:bg-[#3A564F] after:w-0 after:h-full after:z-[1] after:transition-all after:duration-300 hover:after:w-full hover:text-white  group">
       <img class="h-full z-[2]" src="/asset/cards/share_req_updated_blur_ar.png" alt="">
       <div class="text-right flex flex-col items-end gap-3 p-3 z-[2]">
         <h1 class=" md:text-2xl font-semibold">تواصل مباشرة مع مسوقين في جدة</h1>
         <p class="text-gray-600 group-hover:text-white md:text-lg">أكثر من 20 مسوق لديهم عقارات متطابقة مع متطلباتك.</p>
-        <a href="" class="p-3 text-white bg-[#3A564F] rounded-lg  md:text-xl">اطلب عقارك </a>
+        <a href="/pages/talab_akar/talab_akar.html" class="p-3 text-white bg-[#3A564F] rounded-lg  md:text-xl">اطلب عقارك </a>
       </div>
     </div>
 
@@ -370,7 +346,311 @@
 
 
 
+<hr class="w-full ">
+
+<div class="flex items-end flex-col p-8  ">
+  <h1 class="text-3xl text-black">عقارات مشابهة</h1>
+
+  <div class="wrapper ">
+    <i id="left" class="i fa-solid fa-angle-left"></i>
+    <ul class="carousel  overflow-y-hidden">
+
+      <li class="card h-80 bg-white relative rounded-md drop-shadow-lg bg-white mb-5">
+        <a href="/pages/product/product.html">
+          <img src="/asset/citys/riyadh-city-view.jpg" alt="" class="rounded-t-md h-44 w-full">
+          </a>
+        <button class=" absolute top-2 right-2 text-white bg-yellow-400 text-black p-1 rounded "> مميز <i class="fa-regular fa-star"></i></button>
+        <button class=" absolute top-32 right-2 text-white bg-purple-400 text-black p-1 rounded "> مشروع</button>
+
+        <h1 class="font-semibold text-lg text-purple">   مشروع شقق وشقق أرا        </h1>
+            <p class="text-gray-600"> الصحافة، شمال، الرياض</p>
+    
+            <div class="flex items-end  mt-2 gap-5 text-sm">
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">3</h1>
+                <img class="h-8" src="/asset/icons/bed.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">4</h1>
+                <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+                <img class="h-8" src="/asset/icons/meter.svg" alt="">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between flex-row-reverse w-full p-3 rounded  ">
+            <h1 > 4.60M - 2.60M ر.س   </h1>
+            <div class="  p-2  text-[#6f10a2] cursor-pointer">
+              <a href=""><i class="fa-solid fa-phone m-2 "></i></a>
+              <a href=""> <i  class="fa-brands fa-whatsapp"></i></div></a>
+        </div>
+      </li>
+
+      <li class="card h-80 bg-white relative rounded-md drop-shadow-lg bg-white mb-5">
+        <a href="/pages/product/product.html">
+          <img src="/asset/citys/villas-for-sale-in-jeddah.jpeg" alt="" class="rounded-t-md h-44 w-full">
+          </a>
+        <button class=" absolute top-2 right-2 text-white bg-yellow-400 text-black p-1 rounded "> مميز <i class="fa-regular fa-star"></i></button>
+        <button class=" absolute top-32 right-2 text-white bg-purple-400 text-black p-1 rounded "> مشروع</button>
+
+        <h1 class="font-semibold text-lg text-purple">   مشروع شقق وشقق أرا        </h1>
+            <p class="text-gray-600"> الصحافة، شمال، الرياض</p>
+    
+            <div class="flex items-end  mt-2 gap-5 text-sm">
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">3</h1>
+                <img class="h-8" src="/asset/icons/bed.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">4</h1>
+                <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+                <img class="h-8" src="/asset/icons/meter.svg" alt="">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between flex-row-reverse w-full p-3 rounded  ">
+            <h1 > 4.60M - 2.60M ر.س   </h1>
+            <div class="  p-2  text-[#6f10a2] cursor-pointer">
+              <a href=""><i class="fa-solid fa-phone m-2 "></i></a>
+              <a href=""> <i  class="fa-brands fa-whatsapp"></i></div></a>
+        </div>
+      </li>
+
+      <li class="card h-80 bg-white relative rounded-md drop-shadow-lg bg-white mb-5">
+        <a href="/pages/product/product.html">
+          <img src="/asset/citys/medina-city-view.jpg" alt="" class="rounded-t-md h-44 w-full">
+          </a>
+        <button class=" absolute top-2 right-2 text-white bg-yellow-400 text-black p-1 rounded "> مميز <i class="fa-regular fa-star"></i></button>
+        <button class=" absolute top-32 right-2 text-white bg-purple-400 text-black p-1 rounded "> مشروع</button>
+
+        <h1 class="font-semibold text-lg text-purple">   مشروع شقق وشقق أرا        </h1>
+            <p class="text-gray-600"> الصحافة، شمال، الرياض</p>
+    
+            <div class="flex items-end  mt-2 gap-5 text-sm">
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">3</h1>
+                <img class="h-8" src="/asset/icons/bed.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">4</h1>
+                <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+                <img class="h-8" src="/asset/icons/meter.svg" alt="">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between flex-row-reverse w-full p-3 rounded  ">
+            <h1 > 4.60M - 2.60M ر.س   </h1>
+            <div class="  p-2  text-[#6f10a2] cursor-pointer">
+              <a href=""><i class="fa-solid fa-phone m-2 "></i></a>
+              <a href=""> <i  class="fa-brands fa-whatsapp"></i></div></a>
+        </div>
+      </li>
+
+      <li class="card h-80 bg-white relative rounded-md drop-shadow-lg bg-white mb-5">
+        <a href="/pages/product/product.html">
+          <img src="/asset/citys/mecca-city-view.png" alt="" class="rounded-t-md h-44 w-full">
+          </a>
+        <button class=" absolute top-2 right-2 text-white bg-yellow-400 text-black p-1 rounded "> مميز <i class="fa-regular fa-star"></i></button>
+        <button class=" absolute top-32 right-2 text-white bg-purple-400 text-black p-1 rounded "> مشروع</button>
+
+        <h1 class="font-semibold text-lg text-purple">   مشروع شقق وشقق أرا        </h1>
+            <p class="text-gray-600"> الصحافة، شمال، الرياض</p>
+    
+            <div class="flex items-end  mt-2 gap-5 text-sm">
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">3</h1>
+                <img class="h-8" src="/asset/icons/bed.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">4</h1>
+                <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+                <img class="h-8" src="/asset/icons/meter.svg" alt="">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between flex-row-reverse w-full p-3 rounded  ">
+            <h1 > 4.60M - 2.60M ر.س   </h1>
+            <div class="  p-2  text-[#6f10a2] cursor-pointer">
+              <a href=""><i class="fa-solid fa-phone m-2 "></i></a>
+              <a href=""> <i  class="fa-brands fa-whatsapp"></i></div></a>
+        </div>
+      </li>
+
+      <li class="card h-80 bg-white relative rounded-md drop-shadow-lg bg-white mb-5">
+        <a href="/pages/product/product.html">
+          <img src="/asset/citys/jeddah-city-view.jpg" alt="" class="rounded-t-md h-44 w-full">
+          </a>
+        <button class=" absolute top-2 right-2 text-white bg-yellow-400 text-black p-1 rounded "> مميز <i class="fa-regular fa-star"></i></button>
+        <button class=" absolute top-32 right-2 text-white bg-purple-400 text-black p-1 rounded "> مشروع</button>
+
+        <h1 class="font-semibold text-lg text-purple">   مشروع شقق وشقق أرا        </h1>
+            <p class="text-gray-600"> الصحافة، شمال، الرياض</p>
+    
+            <div class="flex items-end  mt-2 gap-5 text-sm">
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">3</h1>
+                <img class="h-8" src="/asset/icons/bed.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl">4</h1>
+                <img class="h-8" src="/asset/icons/bathtub.svg" alt="">
+            </div>
+    
+              <div class="flex items-center gap-1">
+                <h1 class="font-semibold text-xl flex items-center flex-row-reverse gap-1" >223<span class="text-sm text-gray-500">م</span></h1>
+                <img class="h-8" src="/asset/icons/meter.svg" alt="">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between flex-row-reverse w-full p-3 rounded  ">
+            <h1 > 4.60M - 2.60M ر.س   </h1>
+            <div class="  p-2  text-[#6f10a2] cursor-pointer">
+              <a href=""><i class="fa-solid fa-phone m-2 "></i></a>
+              <a href=""> <i  class="fa-brands fa-whatsapp"></i></div></a>
+        </div>
+      </li>
+
+    </ul>
+    <i id="right" class="i fa-solid fa-angle-right"></i>
+  </div>
   
+</div>
+
+
+
+  
+
+
+
+
+
+<script>
+  
+  const wrapper = document.querySelector(".wrapper");
+      const carousel = document.querySelector(".carousel");
+      const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+      const arrowBtns = document.querySelectorAll(".wrapper i");
+      const carouselChildrens = [...carousel.children];
+      let isDragging = false,
+        isAutoPlay = true,
+        startX,
+        startScrollLeft,
+        timeoutId;
+      // Get the number of cards that can fit in the carousel at once
+      let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth);
+      // Insert copies of the last few cards to beginning of carousel for infinite scrolling
+      carouselChildrens
+        .slice(-cardPerView)
+        .reverse()
+        .forEach((card) => {
+          carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+        });
+      // Insert copies of the first few cards to end of carousel for infinite scrolling
+      carouselChildrens.slice(0, cardPerView).forEach((card) => {
+        carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+      });
+      // Scroll the carousel at appropriate postition to hide first few duplicate cards on Firefox
+      carousel.classList.add("no-transition");
+      carousel.scrollLeft = carousel.offsetWidth;
+      carousel.classList.remove("no-transition");
+      // Add event listeners for the arrow buttons to scroll the carousel left and right
+      arrowBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          carousel.scrollLeft +=
+            btn.id == "left" ? -firstCardWidth : firstCardWidth;
+        });
+      });
+      const dragStart = (e) => {
+        isDragging = true;
+        carousel.classList.add("dragging");
+        // Records the initial cursor and scroll position of the carousel
+        startX = e.pageX;
+        startScrollLeft = carousel.scrollLeft;
+      };
+      const dragging = (e) => {
+        if (!isDragging) return; // if isDragging is false return from here
+        // Updates the scroll position of the carousel based on the cursor movement
+        carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+      };
+      const dragStop = () => {
+        isDragging = false;
+        carousel.classList.remove("dragging");
+      };
+      const infiniteScroll = () => {
+        // If the carousel is at the beginning, scroll to the end
+        if (carousel.scrollLeft === 0) {
+          carousel.classList.add("no-transition");
+          carousel.scrollLeft = carousel.scrollWidth - 2 * carousel.offsetWidth;
+          carousel.classList.remove("no-transition");
+        }
+        // If the carousel is at the end, scroll to the beginning
+        else if (
+          Math.ceil(carousel.scrollLeft) ===
+          carousel.scrollWidth - carousel.offsetWidth
+        ) {
+          carousel.classList.add("no-transition");
+          carousel.scrollLeft = carousel.offsetWidth;
+          carousel.classList.remove("no-transition");
+        }
+        // Clear existing timeout & start autoplay if mouse is not hovering over carousel
+        clearTimeout(timeoutId);
+        if (!wrapper.matches(":hover")) autoPlay();
+      };
+      const autoPlay = () => {
+        if (window.innerWidth < 800 || !isAutoPlay) return; // Return if window is smaller than 800 or isAutoPlay is false
+        // Autoplay the carousel after every 2500 ms
+        timeoutId = setTimeout(
+          () => (carousel.scrollLeft += firstCardWidth),
+          2500
+        );
+      };
+      autoPlay();
+      carousel.addEventListener("mousedown", dragStart);
+      carousel.addEventListener("mousemove", dragging);
+      document.addEventListener("mouseup", dragStop);
+      carousel.addEventListener("scroll", infiniteScroll);
+      wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+      wrapper.addEventListener("mouseleave", autoPlay);
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+<div id="footer"></div>
+
+<script>
+
+  loadComponent('/componets/footer.html', "footer")
+</script>
+
   
 </body>
 </html>

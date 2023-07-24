@@ -14,6 +14,7 @@
   body{
     color: var(--main);
     font-family: 'Tajawal', sans-serif;
+    
   }
   
   
@@ -24,12 +25,18 @@
   section{
     color: black;
     width: 80%;
-    direction: rtl;
     padding-top: 100px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
     
   }
 section article{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: end;
     margin: 2px;
 }
 section article h3{
@@ -60,6 +67,10 @@ section article h3::after{
 
 }
 ol li,ul{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: end;
     list-style:  inside;
     padding: 20px 10px 20px ;
     font-size: 10px;
@@ -69,6 +80,10 @@ ol li,ul{
         
 }
 section p{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   font-size: 20px;
   opacity: 0.7;
 }

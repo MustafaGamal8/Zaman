@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ZAMAN</title>
   <script src="/index.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/index.css">
-  <style>
-  
 
-</style>
 </head>
 <body>
+
+
+  
   
   <div id="navBar"  ></div>
   
@@ -54,17 +54,29 @@
     <div class="bg-white drop-shadow-md border  w-full rounded-lg text-black  flex flex-col items-end  p-2 md:p-7   gap-7 text-right">
       <h1 class="text-2xl">التفاصيل الرئيسية</h1>
       
-      <div  >
+      <div>
         <h2 class="text-xl">أبحث عن عقار بهدف</h2>
-        <div class="flex justify-center items-center  mt-2">
-          <button  class="p-1 rounded-lg border mx-2 px-4 focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5 ">
-              للاستئجار
-          </button>
-    
-          <button  class="p-1 rounded-lg border mx-2 px-4  focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5  outline-none">
-              للشراء
-          </button>
+
+        <div class="mt-2">
+          <button class="group p-1 rounded-lg border mx-2 px-4   focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5 " onclick="addHidden('how_to_buy')"">للاستئجار</button>
+          <button class="group p-1 rounded-lg border mx-2 px-4  focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5 " onclick="removeHidden('how_to_buy')">للشراء</button>
+
         </div>
+
+        <div id="how_to_buy" class=" mt-5 hidden">
+          
+        <h2 class="text-xl">كيف تريد الشراء؟</h2>
+
+          <div class="mt-2">
+            <button class="group p-1 rounded-lg border mx-2 px-4   focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5 ">نقدي</button>
+            <button class="group p-1 rounded-lg border mx-2 px-4  focus:border-[#3A564F] focus:bg-[#3A564F] focus:bg-opacity-5 ">تمويل عقاري</button>
+  
+          </div>
+        </div>
+
+
+
+
       </div>
       
       <div  >
@@ -284,7 +296,7 @@
 
     <div class="flex items-center justify-between">
       
-    <button class="p-3 bg-[#3A564F] text-white rounded-md px-8">ارسال</button>
+  <a href="/pages/send/send.html">  <button class="p-3 bg-[#3A564F] text-white rounded-md px-8">ارسال</button></a>
 
       <div class="p-4">
         <label for="myCheckbox" class="inline-flex items-center space-x-2 flex-row-reverse  gap-2">
@@ -307,11 +319,42 @@
 
 
 
+    <script>
+        function handleRadioClick(color) {
+            const labels = document.querySelectorAll('label[for]');
+            labels.forEach(label => {
+                label.classList.remove('checked-label');
+            });
+            
+            const labelForColor = document.querySelector(`label[for="${color}"]`);
+            labelForColor.classList.add('checked-label');
+            console.log(color)
+        }
+    </script>
+
 
 
 
   <script>
     loadComponent('/componets/navbar.html','navBar');
+
+  //   function handleRadioClick(inputId) {
+  //   if (document.getElementById(inputId).checked) {
+      
+  //   const label = document.querySelector(`aria-placeholder[for="${inputId}"]`);
+  //   label.classList.add('border-[#3a564f]')
+    
+  //   console.log("foucs")
+  //   }else{
+  //   const label = document.querySelector(`aria-placeholder[for="${inputId}"]`);
+  //   label.classList.add('border-none')
+  //   console.log("blur")
+
+  //   }
+  // }
+
+
+
   </script>
   
 </body>
