@@ -58,14 +58,14 @@
       <div class="hidden lg:flex  gap-4 flex-row-reverse text-lg whitespace-nowrap">
         <button
         id="mySearchBtn"
-          class="group  hover:bg-gray-100 p-3 rounded-lg cursor-pointer"
+          class="group relative  hover:bg-gray-100 p-3 rounded-lg cursor-pointer"
         >
           <h1 class="flex flex-row-reverse items-center gap-1">
             بحث<i class="fa-solid fa-magnifying-glass"></i>
           </h1>
 
           <div
-            class="search_dialog hidden absolute top-20 right-5 bg-white drop-shadow-md  w-[300px] h-48 rounded-tl-2xl rounded-bl-2xl border group-focus:flex flex-col gap-3 justify-around p-4"
+            class="search_dialog hidden absolute top-20 -right-5 bg-white drop-shadow-md  w-[200px]  rounded-xl  border group-focus:flex flex-col gap-3 justify-around p-4"
           >
             <div
               id="sell"
@@ -73,19 +73,19 @@
               onclick="toggleSearchDialog('sell')"
             >
               <div>
-                <h1 class="">للبيع</h1>
-                <p class="text-gray-400 font-thin">عروض البيع في منطقتك</p>
+                <h1 class="">للبيع 
+                  <i class="fa-solid fa-tag text-xl"></i></h1>
+                <p class="text-gray-400 font-thin text-sm">عروض البيع في منطقتك</p>
               </div>
-              <i class="fa-solid fa-tag text-3xl"></i>
             </div>
 
             <div id="rent"  class="    focus:bg-red-500 flex   items-center justify-around  w-full hover:bg-gray-100 p-2 rounded-lg" 
             onclick="toggleSearchDialog('rent')">
             <div>
-              <h1 class="">لليجار</h1>
-              <p class="text-gray-400 font-thin">عروض البيع في منطقتك</p>
+              <h1 class="">لليجار 
+                <i class="fa-solid fa-key text-xl"></i></h1>
+              <p class="text-gray-400 font-thin text-sm">عروض البيع في منطقتك</p>
             </div>
-            <i class="fa-solid fa-key text-2xl"></i>
           </div>
           
           </div>
@@ -100,7 +100,7 @@
 
         <div
           id="search_dialoag"
-          class=" hidden  absolute top-[5rem] z-[2] left-5 bg-white w-[80%] ml-10 m-auto h-48 rounded-lg drop-shadow-lg justify-center items-center overflow-x-scroll"
+          class=" hidden  absolute top-[5rem] z-[2] left-80 bg-white w-[60%] ml-10 m-auto h-48 rounded-lg drop-shadow-lg justify-center items-center overflow-x-scroll"
         >
 
         <div class="absolute top-5 right-8 cursor-pointer text-3xl" onclick="hideSearch_dialoag()"><i class="fa-solid fa-xmark"></i></div>
