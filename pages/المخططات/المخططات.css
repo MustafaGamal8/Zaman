@@ -12,7 +12,7 @@
   }
   body{
     background-color: var(--light);
-    direction: ltr;
+    
   }
   
   section{
@@ -101,7 +101,7 @@
 justify-content: space-between;
 }
 .info{
-  direction: rtl;
+
   padding: 30px;
 }
 .info i{
