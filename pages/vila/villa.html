@@ -281,14 +281,16 @@
 
 
   <script>
+
+    
 function toggleHidden(id) {
-
-  document.getElementById(id).classList.toggle('hidden')
-
-  
-
-
-
+  const dropdowns = document.querySelectorAll('.relative > div');
+  dropdowns.forEach((dropdown) => {
+    if (dropdown.id !== id) {
+      dropdown.classList.add('hidden');
+    }
+  });
+  document.getElementById(id).classList.toggle('hidden');
 }
 
 
